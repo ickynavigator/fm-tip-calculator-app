@@ -7,21 +7,46 @@ $Dark-grayish-cyan-2: hsl(184, 14%, 56%);
 $Light-grayish-cyan-1: hsl(185, 41%, 84%);
 $Light-grayish-cyan-2: hsl(189, 41%, 97%);
 $White: hsl(0, 0%, 100%);
+// $Black: hsl(0, 0%, 0%);
 
 * {
   margin: 0;
   padding: 0;
+  font-family: "Space Mono", monospace;
 }
 
 body {
-  font-family: "Space Mono", monospace;
   background-color: $Light-grayish-cyan-1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.__my-input {
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: right;
+  border-radius: 0.3rem;
+  width: 100%;
+  background-color: $Light-grayish-cyan-2;
+  border: 1px solid $Light-grayish-cyan-2 !important;
+  color: $Dark-grayish-cyan-2;
+
+  &:focus {
+    outline-offset: 0px !important;
+    outline: none !important;
+    border: 1px solid $Strong-cyan !important;
+  }
 }
 
 .__my-container {
   background-color: $White;
   border-radius: 2rem;
   padding: 2rem;
+  width: 70%;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -39,31 +64,41 @@ body {
 
 .section-lt {
   padding-right: 2rem;
-  .tip-select {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 1rem;
-    grid-template-areas:
-      ". . ."
-      ". . .";
-    button[id^="tip-"] {
-      border: none;
-      border-radius: 0.3rem;
-      background-color: $Very-dark-cyan;
-      color: $White;
-      &[class="active-btn"] {
-        background-color: $Strong-cyan;
-      }
+  color: $Dark-grayish-cyan-1;
+  font-weight: 600;
 
-      input {
-        border-radius: 0.3rem;
-        width: 100%;
-        background-color: $Strong-cyan;
+  // .lt-bill {}
+  .lt-sel {
+    padding: 2rem 0;
+    .tip-select {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 1rem;
+      grid-template-areas:
+        ". . ."
+        ". . .";
+
+      button[id^="tip-"] {
+        font-size: 1rem;
+        font-weight: 700;
+
         border: none;
+        border-radius: 0.3rem;
+        background-color: $Very-dark-cyan;
+        color: $White;
+        transition: 150ms ease-in-out;
+        &:hover {
+          color: $Very-dark-cyan;
+          background-color: $Light-grayish-cyan-1;
+        }
+        &[class="active-btn"] {
+          background-color: $Strong-cyan;
+        }
       }
     }
   }
+  // .lt-num {}
 }
 
 .section-rt {
