@@ -2,7 +2,7 @@
 $screen-xs-max: 375px;
 $screen-sm-max: 768px;
 $screen-md-max: 992px;
-$screen-lg-max: 1200px;
+$screen-lg-max: 1400px;
 @mixin xs {
   @media (min-width: #{$screen-xs-max}) {
     @content;
@@ -31,7 +31,6 @@ $Dark-grayish-cyan-2: hsl(184, 14%, 56%);
 $Light-grayish-cyan-1: hsl(185, 41%, 84%);
 $Light-grayish-cyan-2: hsl(189, 41%, 97%);
 $White: hsl(0, 0%, 100%);
-// $Black: hsl(0, 0%, 0%);
 
 * {
   margin: 0;
@@ -42,18 +41,12 @@ $White: hsl(0, 0%, 100%);
 
 body {
   background-color: $Light-grayish-cyan-1;
-
   form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-  }
-
-  @include xs {
-  }
-  @include md {
   }
 }
 
@@ -84,7 +77,6 @@ body {
 }
 
 .section-lt {
-  // padding-right: 2rem;
   color: $Dark-grayish-cyan-1;
   font-weight: 600;
 
@@ -93,11 +85,7 @@ body {
     padding: 2rem 0;
     .tip-select {
       display: grid;
-
       gap: 1rem;
-      // grid-template-areas:
-      //   ". . ."
-      //   ". . .";
 
       @include xs {
         grid-template-columns: 1fr 1fr;
@@ -132,33 +120,57 @@ body {
 }
 
 .section-rt {
-  padding: 1rem;
+  padding: 2rem;
   background-color: $Very-dark-cyan;
   display: flex;
   justify-content: space-between;
 
-  // .tp-display{}
+  .tp-display {
+    .val-display {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1rem;
+
+      .val-lt {
+        .tp-text {
+          color: $Light-grayish-cyan-1;
+        }
+        .bt-text {
+          color: $Dark-grayish-cyan-1;
+        }
+      }
+      .val-rt {
+        font-size: 2rem;
+        font-weight: 700;
+        color: $Strong-cyan;
+      }
+    }
+  }
+
   .bt-display {
     input[type="reset"] {
       padding: 1rem;
       width: 100%;
       border: none;
       border-radius: 0.3rem;
+      color: $Very-dark-cyan;
+      background-color: $Strong-cyan;
+      font-size: 1.3rem;
+      font-weight: 700;
+      transition: 150ms ease-in-out;
+
       &:hover {
+        color: $Very-dark-cyan;
+        background-color: $Light-grayish-cyan-1;
       }
       &:disabled {
         background-color: $Dark-grayish-cyan-1;
       }
     }
   }
-
-  .val-display {
-    display: flex;
-    justify-content: space-between;
-  }
 }
 
-//
 .__my-input-group {
   position: relative;
   i {
@@ -177,7 +189,7 @@ body {
   text-align: right;
   border-radius: 0.3rem;
   width: 100%;
-  // height: 100%;
+  height: 100%;
   background-color: $Light-grayish-cyan-2;
   border: 0.188rem solid $Light-grayish-cyan-2 !important;
   color: $Dark-grayish-cyan-2;
