@@ -1,32 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+
 $Strong-cyan: hsl(172, 67%, 45%);
 $Very-dark-cyan: hsl(183, 100%, 15%);
-$Dark-grayish-cyan: hsl(186, 14%, 43%);
-$Dark-grayish-cyan: hsl(184, 14%, 56%);
-$Light-grayish-cyan: hsl(185, 41%, 84%);
-$Light-grayish-cyan: hsl(189, 41%, 97%);
+$Dark-grayish-cyan-1: hsl(186, 14%, 43%);
+$Dark-grayish-cyan-2: hsl(184, 14%, 56%);
+$Light-grayish-cyan-1: hsl(185, 41%, 84%);
+$Light-grayish-cyan-2: hsl(189, 41%, 97%);
 $White: hsl(0, 0%, 100%);
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Space Mono", monospace;
+  background-color: $Light-grayish-cyan-1;
+}
+
+.__my-container {
+  background-color: $White;
+  border-radius: 2rem;
+  padding: 2rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas: ". .";
+
+  .section-lt,
+  .section-rt {
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.section-lt {
+  padding-right: 2rem;
+  .tip-select {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+    grid-template-areas:
+      ". . ."
+      ". . .";
+    button[id^="tip-"] {
+      border: none;
+      border-radius: 0.3rem;
+      background-color: $Very-dark-cyan;
+      color: $White;
+      &[class="active-btn"] {
+        background-color: $Strong-cyan;
+      }
+
+      input {
+        border-radius: 0.3rem;
+        width: 100%;
+        background-color: $Strong-cyan;
+        border: none;
+      }
+    }
+  }
+}
+
+.section-rt {
+  padding: 2rem;
+  background-color: $Very-dark-cyan;
+}
 
 .attribution {
   font-size: 11px;
   text-align: center;
   a {
     color: hsl(228, 45%, 44%);
-  }
-}
-
-.__my-container {
-  display: flex;
-  flex-direction: row;
-
-  div {
-    border-radius: 20px;
-    &.section-lt {
-      button[id^="tip-"] {
-        border-radius: 20px;
-      }
-    }
-    &.section-rt {
-      background-color: $Very-dark-cyan;
-    }
   }
 }
