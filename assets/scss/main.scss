@@ -1,4 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+$screen-xs-max: 375px;
+$screen-sm-max: 768px;
+$screen-md-max: 992px;
+$screen-lg-max: 1200px;
+@mixin xs {
+  @media (min-width: #{$screen-xs-max}) {
+    @content;
+  }
+}
+@mixin sm {
+  @media (min-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+@mixin md {
+  @media (min-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (min-width: #{$screen-lg-max}) {
+    @content;
+  }
+}
 
 $Strong-cyan: hsl(172, 67%, 45%);
 $Very-dark-cyan: hsl(183, 100%, 15%);
@@ -13,57 +37,54 @@ $White: hsl(0, 0%, 100%);
   margin: 0;
   padding: 0;
   font-family: "Space Mono", monospace;
+  box-sizing: border-box;
 }
 
 body {
   background-color: $Light-grayish-cyan-1;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
 
-.__my-input {
-  font-size: 1rem;
-  font-weight: 700;
-  text-align: right;
-  border-radius: 0.3rem;
-  width: 100%;
-  background-color: $Light-grayish-cyan-2;
-  border: 1px solid $Light-grayish-cyan-2 !important;
-  color: $Dark-grayish-cyan-2;
-
-  &:focus {
-    outline-offset: 0px !important;
-    outline: none !important;
-    border: 1px solid $Strong-cyan !important;
+  @include xs {
+  }
+  @include md {
   }
 }
 
 .__my-container {
   background-color: $White;
-  border-radius: 2rem;
+  border-radius: 1rem;
   padding: 2rem;
-  width: 70%;
 
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  gap: 0px 0px;
-  grid-template-areas: ". .";
+  gap: 2rem 2rem;
+  @include xs {
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  @include md {
+    width: 60%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
 
   .section-lt,
   .section-rt {
-    border-radius: 2rem;
+    border-radius: 1rem;
     display: flex;
     flex-direction: column;
   }
 }
 
 .section-lt {
-  padding-right: 2rem;
+  // padding-right: 2rem;
   color: $Dark-grayish-cyan-1;
   font-weight: 600;
 
@@ -72,15 +93,23 @@ body {
     padding: 2rem 0;
     .tip-select {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
+
       gap: 1rem;
-      grid-template-areas:
-        ". . ."
-        ". . .";
+      // grid-template-areas:
+      //   ". . ."
+      //   ". . .";
+
+      @include xs {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+      }
+      @include md {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+      }
 
       button[id^="tip-"] {
-        font-size: 1rem;
+        font-size: 1.5rem;
         font-weight: 700;
 
         border: none;
@@ -88,6 +117,7 @@ body {
         background-color: $Very-dark-cyan;
         color: $White;
         transition: 150ms ease-in-out;
+
         &:hover {
           color: $Very-dark-cyan;
           background-color: $Light-grayish-cyan-1;
@@ -102,8 +132,64 @@ body {
 }
 
 .section-rt {
-  padding: 2rem;
+  padding: 1rem;
   background-color: $Very-dark-cyan;
+  display: flex;
+  justify-content: space-between;
+
+  // .tp-display{}
+  .bt-display {
+    input[type="reset"] {
+      padding: 1rem;
+      width: 100%;
+      border: none;
+      border-radius: 0.3rem;
+      &:hover {
+      }
+      &:disabled {
+        background-color: $Dark-grayish-cyan-1;
+      }
+    }
+  }
+
+  .val-display {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+//
+.__my-input-group {
+  position: relative;
+  i {
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    padding: 0.625rem 1.5rem;
+    color: #aaa;
+    transition: 0.3s;
+  }
+}
+
+.__my-input {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: right;
+  border-radius: 0.3rem;
+  width: 100%;
+  // height: 100%;
+  background-color: $Light-grayish-cyan-2;
+  border: 0.188rem solid $Light-grayish-cyan-2 !important;
+  color: $Dark-grayish-cyan-2;
+  height: 3rem;
+  appearance: none;
+  padding-right: 0.4rem;
+
+  &:focus {
+    outline-offset: 0px !important;
+    outline: none !important;
+    border: 0.188rem solid $Light-grayish-cyan-1 !important;
+  }
 }
 
 .attribution {
