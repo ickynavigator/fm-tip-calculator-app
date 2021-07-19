@@ -1,0 +1,12 @@
+        <label>
+          <input type="radio" name="tip-radio" id="tip-5">5%
+        </label>
+
+        <input type="radio" name="tip-radio" id="tip-10">
+        <label for="tip-10">10%</label>
+
+        <input type="radio" name="tip-radio" id="tip-15">
+        <label for="tip-10">5%</label>
+
+        <input type="radio" name="tip-radio" id="tip-25">
+        <input type="radio" name="tip-radio" id="tip-50">
