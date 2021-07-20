@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
 $screen-xs-max: 375px;
 $screen-sm-max: 768px;
 $screen-md-max: 992px;
@@ -57,11 +56,10 @@ body {
 
   display: grid;
   gap: 2rem 2rem;
-  @include xs {
-    width: 100%;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-  }
+  width: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+
   @include md {
     width: 60%;
     grid-template-columns: 1fr 1fr;
@@ -87,10 +85,8 @@ body {
       display: grid;
       gap: 1rem;
 
-      @include xs {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-      }
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
       @include md {
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr;
@@ -138,7 +134,7 @@ body {
           color: $Light-grayish-cyan-1;
         }
         .bt-text {
-          color: $Dark-grayish-cyan-1;
+          color: $Dark-grayish-cyan-1; // contrast issue
         }
       }
       .val-rt {
@@ -156,7 +152,7 @@ body {
       border: none;
       border-radius: 0.3rem;
       color: $Very-dark-cyan;
-      background-color: $Strong-cyan;
+      background-color: $Strong-cyan; // contrast issue
       font-size: 1.3rem;
       font-weight: 700;
       transition: 150ms ease-in-out;
@@ -196,7 +192,11 @@ body {
   color: $Dark-grayish-cyan-2;
   height: 3rem;
   appearance: none;
-  padding-right: 0.4rem;
+  padding-right: 1rem;
+
+  @include md {
+    padding-right: 0rem;
+  }
 
   &:focus {
     outline-offset: 0px !important;
@@ -206,7 +206,7 @@ body {
 }
 
 .attribution {
-  font-size: 11px;
+  font-size: 1rem;
   text-align: center;
   a {
     color: hsl(228, 45%, 44%);
