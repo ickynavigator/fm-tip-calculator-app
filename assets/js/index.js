@@ -27,6 +27,21 @@ const updateValue = () => {
     document.querySelector("#total-val").innerHTML = `$0.00`;
   }
 };
+const validateInput = (tar, id, value) => {
+  let msg = `Can't be less than 1`;
+  if (id === "tip") {
+    tar = document.querySelector("#tip-custom>input");
+  }
+  if (value <= 0) {
+    tar.classList.add(`__my-input-error`);
+    document.querySelector(`#input-${id}-error`).innerHTML = msg;
+    return false;
+  } else {
+    tar.classList.remove(`__my-input-error`);
+    document.querySelector(`#input-${id}-error`).innerHTML = ``;
+    return true;
+  }
+};
 
 const realButtons = document.querySelectorAll('button[id^="tip-"]');
 realButtons.forEach((button) => {
@@ -36,7 +51,7 @@ realButtons.forEach((button) => {
     });
     event.target.classList.add("active-btn");
     tip_value = Number(event.target.value);
-    updateValue();
+    validateInput(event.target, "tip", tip_value) && updateValue();
   });
 
   if (button.id === "tip-custom") {
@@ -48,15 +63,21 @@ realButtons.forEach((button) => {
 });
 document.querySelector("#input-bill").addEventListener("input", (event) => {
   bill_value = Number(event.target.value);
-  updateValue();
+  validateInput(event.target, "bill", bill_value) && updateValue();
 });
 document.querySelector("#input-cnt").addEventListener("input", (event) => {
   people_count = Number(event.target.value);
-  updateValue();
+  validateInput(event.target, "people", people_count) && updateValue();
 });
 document.querySelector("#__my-form").addEventListener("reset", () => {
   document.querySelector("#tip-val").innerHTML = `$0.00`;
   document.querySelector("#total-val").innerHTML = `$0.00`;
+  ["bill", "tip", "people"].forEach((x) => {
+    document.querySelector(`#input-${x}-error`).innerHTML = ``;
+  });
+  document.querySelectorAll(".__my-input-error").forEach((inp) => {
+    inp.classList.remove("__my-input-error");
+  });
   realButtons.forEach((x) => {
     x.classList.remove("active-btn");
     if (x.id === "tip-custom") {
@@ -65,6 +86,7 @@ document.querySelector("#__my-form").addEventListener("reset", () => {
       });
     }
   });
+  document.querySelector("input[type='reset']").disabled = true;
 
   tip_value = 0;
   bill_value = 0;

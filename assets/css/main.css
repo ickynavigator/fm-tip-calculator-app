@@ -27,6 +27,10 @@ body form {
   min-height: 100vh;
 }
 
+body form img[alt="Logo"] {
+  padding-bottom: 5rem;
+}
+
 .__my-container {
   background-color: white;
   border-radius: 1rem;
@@ -66,6 +70,19 @@ body form {
 .section-lt {
   color: #5e7a7d;
   font-weight: 600;
+}
+
+.section-lt .__my-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .section-lt .lt-sel {
@@ -137,10 +154,12 @@ body form {
 }
 
 .section-rt .tp-display .val-display .val-lt .tp-text {
+  font-size: 0.9rem;
   color: #c5e4e7;
 }
 
 .section-rt .tp-display .val-display .val-lt .bt-text {
+  font-size: 0.7rem;
   color: #5e7a7d;
 }
 
@@ -151,7 +170,7 @@ body form {
 }
 
 .section-rt .bt-display input[type="reset"] {
-  padding: 1rem;
+  padding: 0.5rem;
   width: 100%;
   border: none;
   border-radius: 0.3rem;
@@ -176,30 +195,26 @@ body form {
   position: relative;
 }
 
-.__my-input-group i {
+.__my-input-group img {
   position: absolute;
   left: 0;
   top: 0.5rem;
   padding: 0.625rem 1.5rem;
-  color: #aaa;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
 .__my-input {
+  color: #00494d;
   font-size: 1.5rem;
   font-weight: 700;
   text-align: right;
   border-radius: 0.3rem;
-  width: 100%;
-  height: 100%;
-  background-color: #f4fafa;
-  border: 0.188rem solid #f4fafa !important;
-  color: #7f9c9f;
+  border: 0.188rem solid;
+  border-color: #f4fafa !important;
   height: 3rem;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  width: 100%;
+  background-color: #f4fafa;
   padding-right: 1rem;
 }
 
@@ -212,7 +227,15 @@ body form {
 .__my-input:focus {
   outline-offset: 0px !important;
   outline: none !important;
-  border: 0.188rem solid #c5e4e7 !important;
+  border-color: #c5e4e7 !important;
+}
+
+.__my-input.__my-input-error {
+  border-color: red !important;
+}
+
+.__my-input-error-display {
+  color: red;
 }
 
 .attribution {

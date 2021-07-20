@@ -19,21 +19,29 @@
 
 <body>
   <form id="__my-form">
+    <img src="./assets/images/logo.svg" alt="Logo">
     <main class="__my-container">
       <div class="section-lt">
         <div class="lt-bill">
           <label>
-            Bill
-            <br>
+            <div class="__my-label">
+              <span>Bill</span>
+              <span id="input-bill-error" class="__my-input-error-display"></span>
+            </div>
+
             <div class="__my-input-group">
-              <i class="fas fa-dollar-sign" aria-hidden="true"></i>
+              <img src="./assets/images/icon-dollar.svg" aria-hidden="true" alt="dollar icon" />
               <input type="number" class="__my-input" id="input-bill" placeholder="0" min="1">
             </div>
           </label>
         </div>
 
         <div class="lt-sel">
-          <span>Select Tip %</span>
+          <div class="__my-label">
+            <span>Select Tip %</span>
+            <span id="input-tip-error" class="__my-input-error-display"></span>
+          </div>
+
           <div class="tip-select">
             <button type="button" value="05" id="tip-5">5%</button>
             <button type="button" value="10" id="tip-10">10%</button>
@@ -48,10 +56,13 @@
 
         <div class="lt-num">
           <label>
-            Number of People
-            <br>
+            <div class="__my-label">
+              <span>Number of People</span>
+              <span id="input-people-error" class="__my-input-error-display"></span>
+            </div>
+
             <div class="__my-input-group">
-              <i class="fa fa-user" aria-hidden="true"></i>
+              <img src="./assets/images/icon-person.svg" aria-hidden="true" alt="Person icon" />
               <input type="number" class="__my-input" id="input-cnt" placeholder="0" min="1">
             </div>
           </label>
