@@ -10,3 +10,13 @@
 
         <input type="radio" name="tip-radio" id="tip-25">
         <input type="radio" name="tip-radio" id="tip-50">
+
+
+
+          //   const bill_in = document.querySelector("#input-bill");
+  //   const cnt_in = document.querySelector("#input-cnt");
+  //   bill_value = Number(bill_in.value);
+  //   people_count = Number(cnt_in.value);
+
+  //   bill_value = Number(document.querySelector("#input-bill").value);
+  //   people_count = Number(document.querySelector("#input-cnt").value);

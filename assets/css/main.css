@@ -119,6 +119,7 @@ body form {
 }
 
 .section-lt .lt-sel .tip-select button[id^="tip-"][class="active-btn"] {
+  color: #00494d;
   background-color: #26c0ab;
 }
 

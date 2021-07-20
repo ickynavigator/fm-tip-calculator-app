@@ -111,6 +111,7 @@ body {
           background-color: $Light-grayish-cyan-1;
         }
         &[class="active-btn"] {
+          color: $Very-dark-cyan;
           background-color: $Strong-cyan;
         }
       }
